@@ -51,7 +51,7 @@ class BuildPicWithPic:
             (w, h) = im.size
             if w > h:
                 im = im.transpose(Image.ROTATE_90)
-            im = im.resize((90, 120), Image.ANTIALIAS)
+            im = im.resize((30, 40), Image.ANTIALIAS)
             im.save(TMP_DIR+str(idx)+'.jpg', 'jpeg')
             idx += 1
 
@@ -76,8 +76,8 @@ class BuildPicWithPic:
     def build_picture(self, src_arr, dst_arrs):
         h, w, c = src_arr.shape
         result_arr = np.zeros((h, w, c), dtype='int64')
-        patch_w = 90
-        patch_h = 120
+        patch_w = 30
+        patch_h = 40
         len_w = w / patch_w
         len_h = h / patch_h
         matchDist = [0]*len(dst_arrs)
@@ -92,7 +92,7 @@ class BuildPicWithPic:
 
     def main(self, src_pic_path, dst_pics_dir):
         print 'src picture loading...'
-        src_arr = self.load_picture(src_pic_path, new_w=9000, new_h=12000)
+        src_arr = self.load_picture(src_pic_path, new_w=3000, new_h=4000)
         print 'preprocessing...'
         self.preprocess_dir(dst_pics_dir)
         dst_arrs = []
