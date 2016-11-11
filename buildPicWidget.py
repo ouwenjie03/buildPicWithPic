@@ -95,6 +95,7 @@ class Ui_mainWindow(QtGui.QMainWindow):
         pic_src = pic_src.scaledToWidth(300)
         self.picLabel_src.setPixmap(pic_src)
         print self.src_filename
+        self.textView.setText(_translate("mainWindow", "打开图片"+self.src_filename, None))
         self.dir_button.setEnabled(True)
 
     def on_opendir_clicked(self):
@@ -103,6 +104,7 @@ class Ui_mainWindow(QtGui.QMainWindow):
         if self.dst_filedir == "":
             return
         print self.dst_filedir
+        self.textView.setText(_translate("mainWindow", "加载文件夹"+self.dst_filedir, None))
         self.run_button.setEnabled(True)
 
     def on_run_clicked(self):

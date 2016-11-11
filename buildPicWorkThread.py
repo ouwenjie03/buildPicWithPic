@@ -42,9 +42,9 @@ class buildPicWorkThread(QtCore.QThread):
         print 'dst picture loading...'
         self.progressBarSignal.emit(60)
         self.infoTextSignal.emit('dst picture loading...')
-        pic_paths = os.listdir(TMP_DIR)
+        pic_paths = os.listdir(builder.TMP_DIR)
         for pic_path in pic_paths:
-            dst_arr = builder.load_picture(TMP_DIR + '\\' + pic_path)
+            dst_arr = builder.load_picture(builder.TMP_DIR + '\\' + pic_path)
             dst_arrs.append(dst_arr)
         print 'picture building...'
         self.progressBarSignal.emit(80)
